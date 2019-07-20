@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage x:Class="TeachingApp.Pages.MasterPage"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:TeachingApp.Pages;assembly=TeachingApp">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master">
+            <StackLayout Padding="5">
+                <Button Text="Home" x:Name="BtnHome" Clicked="BtnHome_OnClicked" />
+                <Button Text="Change Password" x:Name="BtnChangePassword" Clicked="BtnChangePassword_OnClicked" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:HomePage></pages:HomePage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
