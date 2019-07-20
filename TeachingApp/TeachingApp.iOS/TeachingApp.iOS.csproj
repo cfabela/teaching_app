@@ -124,9 +124,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
-    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.7" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.8" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -134,5 +134,22 @@
       <Project>{A6E2873A-D274-4710-B9DE-41DBB5DDCABC}</Project>
       <Name>TeachingApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\changepassword.png" />
+    <BundleResource Include="Resources\changepassword%402x.png" />
+    <BundleResource Include="Resources\changepassword%403x.png" />
+    <BundleResource Include="Resources\faq.png" />
+    <BundleResource Include="Resources\faq%402x.png" />
+    <BundleResource Include="Resources\faq%403x.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\instructor.png" />
+    <BundleResource Include="Resources\instructor%402x.png" />
+    <BundleResource Include="Resources\instructor%403x.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\logout%402x.png" />
+    <BundleResource Include="Resources\logout%403x.png" />
   </ItemGroup>
 </Project>
