@@ -22,5 +22,16 @@ namespace TeachingApp.Servies
             var response = await httpClient.PostAsync("https://teachify.azurewebsites.net/api/Account/Register", content);
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<TokenResponseModel> GetToken(string email, string password)
+        {
+            var httpClient = new HttpClient();
+            var content = new StringContent($"grant_type=password&username={email}&password={password}", Encoding.UTF8);
+            var response = await httpClient.PostAsync("http://teachify.azurewebsites.net//Token", content);
+            var jsonResult = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<TokenResponseModel>(jsonResult);
+
+            return result;
+        }
     }
 }
