@@ -31,10 +31,18 @@ namespace TeachingApp.Servies
             var httpClient = new HttpClient();
             var content = new StringContent($"grant_type=password&username={email}&password={password}", Encoding.UTF8);
             var response = await httpClient.PostAsync("https://teachify.azurewebsites.net//Token", content);
-            var jsonResult = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<TokenResponseModel>(jsonResult);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<TokenResponseModel>(jsonResult);
+                return result;
+            }
 
-            return result;
+            return new TokenResponseModel()
+            {
+                AccessToken = string.Empty,
+
+            };
         }
 
         public async Task<bool> PasswordRecovery(string email)

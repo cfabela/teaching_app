@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TeachingApp.Servies;
 using Xamarin.Forms;
 
 namespace TeachingApp.Pages
@@ -12,9 +12,18 @@ namespace TeachingApp.Pages
             InitializeComponent();
         }
 
-        private void BtnLogin_Clicked(object sender, EventArgs e)
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
         {
-           
+            var apiService = new AccountService();
+            var response = await apiService.GetToken(EntEmail.Text, EntPassword.Text);
+            if(string.IsNullOrEmpty(response.AccessToken))
+            {
+                await DisplayAlert("Error", "Something wrong", "Alright");
+            }
+            else
+            {
+                Application.Current.MainPage = new MasterPage();
+            }
         }
     }
 }
