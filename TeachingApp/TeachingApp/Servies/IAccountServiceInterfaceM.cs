@@ -13,7 +13,7 @@ namespace TeachingApp.Servies
         Task<bool> ChangePassword(string oldPassword, string newPassword, string confirmPassword);
         Task<bool> BecomeAnInstructor(InstructorModel instructor);
         Task<List<InstructorModel>> GetInstructors();
-        Task<List<InstructorModel]>> SearchInstructors(string subject, string gender, string city);
+        Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city);
         Task<InstructorModel> GetInstructor(int id);
         Task<List<CityModel>> GetCities();
         Task<List<CourseModel>> GetCourses();
