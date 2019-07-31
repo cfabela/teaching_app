@@ -91,9 +91,31 @@ namespace TeachingApp.Servies
         {
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
-            var response = await httpClient.GetStreamAsync("https://teachify.azurewebsites.net/api/instructors/" + id);
+            var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/instructors/" + id);
             return JsonConvert.DeserializeObject<InstructorModel>(response);
         }
 
+        public async Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/instructors?subject="+subject +
+                "&gender="+gender+"&city="+city);
+            return JsonConvert.DeserializeObject<List<InstructorModel>>(response);
+        }
+
+        public async Task<List<CityModel>> GetCities()
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/cities");
+            return JsonConvert.DeserializeObject<List<CityModel>>(response);
+        }
+
+        public async Task<List<CourseModel>> GetCourses()
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/courses");
+            return JsonConvert.DeserializeObject<List<CourseModel>>(response);
+        }
     }
 }
