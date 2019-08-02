@@ -24,7 +24,11 @@
             </StackLayout>
             <StackLayout Grid.Row="2" Padding="20" Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Dont have an account?" TextColor="#59474B" />
-                <Label Text="Sign Up" TextColor="#28C8B8"/>
+                <Label Text="Sign Up" TextColor="#28C8B8">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapSignUp" Tapped="Signup_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

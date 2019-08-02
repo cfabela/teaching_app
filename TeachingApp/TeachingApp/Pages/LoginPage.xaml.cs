@@ -10,6 +10,7 @@ namespace TeachingApp.Pages
         public LoginPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private async void BtnLogin_Clicked(object sender, EventArgs e)
@@ -24,6 +25,11 @@ namespace TeachingApp.Pages
             {
                 Application.Current.MainPage = new MasterPage();
             }
+        }
+
+        private void Signup_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SignUpPage());
         }
     }
 }
