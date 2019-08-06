@@ -38,5 +38,10 @@ namespace TeachingApp.Pages
         {
             Navigation.PushAsync(new SignUpPage());
         }
+
+        private void TapForgotPassword_OnTapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ForgotPasswordPage());
+        }
     }
 }

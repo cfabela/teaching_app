@@ -54,7 +54,7 @@ namespace TeachingApp.Servies
 
         public Task<bool> PasswordRecovery(string email)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
 
         public Task<bool> RegisetUser(string email, string password, string confirmPassword)
