@@ -1,5 +1,8 @@
 ﻿using System;
 
+using TeachingApp.Helpers;
+
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -39,7 +42,10 @@ namespace TeachingApp.Pages
 
         private void TapLogout_OnTapped(object sender, EventArgs e)
         {
-
+            Preferences.Set(Constants.Access_Token, string.Empty);
+            Preferences.Set(Constants.Password, string.Empty);
+            Preferences.Set(Constants.Email, string.Empty);
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }
