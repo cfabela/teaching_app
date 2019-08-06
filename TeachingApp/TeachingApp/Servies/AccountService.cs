@@ -1,12 +1,17 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+
 using Newtonsoft.Json;
+using Xamarin.Essentials;
+
+using TeachingApp.Helpers;
 using TeachingApp.Models;
+using Xamarin.Essentials;
 
 namespace TeachingApp.Servies
 {
@@ -71,7 +76,7 @@ namespace TeachingApp.Servies
 
             var json = JsonConvert.SerializeObject(changePasswordModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get(Constants.Access_Token, string.Empty));
             var response = await httpClient.PostAsync("https://teachigy.azurewebsites.net/api/Account/ChangePassword", content);
             
             return response.IsSuccessStatusCode;
@@ -82,7 +87,7 @@ namespace TeachingApp.Servies
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(instructor);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get(Constants.Access_Token, string.Empty));
             var response = await httpClient.PostAsync("https://teachify.azurewebsites.net/api/instructors", content);
             return response.StatusCode == HttpStatusCode.Created;
         }
@@ -90,7 +95,7 @@ namespace TeachingApp.Servies
         public async Task<List<InstructorModel>> GetInstructors()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get(Constants.Access_Token, string.Empty));
             var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/instructors");
             return JsonConvert.DeserializeObject<List<InstructorModel>>(response);
         }
@@ -98,7 +103,7 @@ namespace TeachingApp.Servies
         public async Task<InstructorModel> GetInstructor(int id)
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get(Constants.Access_Token, string.Empty));
             var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/instructors/" + id);
             return JsonConvert.DeserializeObject<InstructorModel>(response);
         }
@@ -106,7 +111,7 @@ namespace TeachingApp.Servies
         public async Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city)
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "Your access token");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get(Constants.Access_Token, string.Empty));
             var response = await httpClient.GetStringAsync("https://teachify.azurewebsites.net/api/instructors?subject="+subject +
                 "&gender="+gender+"&city="+city);
             return JsonConvert.DeserializeObject<List<InstructorModel>>(response);
