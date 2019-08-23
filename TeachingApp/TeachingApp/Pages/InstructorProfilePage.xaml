@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TeachingApp.Pages.InstructorProfilePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height=".33*" />
+                <RowDefinition Height=".60*" />
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" BackgroundColor="Purple   ">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.5*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ImgProfile" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                           Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                           Source="experience"/>
+                    <StackLayout Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                  VerticalOptions="CenterAndExpand" >
+                        <StackLayout Orientation="Horizontal" >
+                            <Label x:Name="LblName" Text="Robert Westberry" TextColor="White" Font="Bold" FontSize="Medium"
+                                   Margin="0,0,10,0"/>
+                            <Label x:Name="LblHourlyRate" Text="$ 30/ hr" TextColor="White" FontSize="Small"/>
+                        </StackLayout>
+                        <Label x:Name="LblOnelineDescription" Text="Robert is a forensic expert at Pentago" TextColor="White"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <Grid  Margin="10" RowSpacing="10" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="location" />
+                <Label Grid.Row="0" Grid.Column="1" Text="City" />
+                <Label Grid.Row="0" Grid.Column="2" x:Name="LblCity" Text="Washington" />
+
+                <Image Grid.Row="1" Grid.Column="0" Source="language" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Language" />
+                <Label Grid.Row="1" Grid.Column="2" x:Name="LblLanguage" Text="English" />
+
+                <Image Grid.Row="2" Grid.Column="0" Source="nationality" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Nationality" />
+                <Label Grid.Row="2" Grid.Column="2" x:Name="LblNationality" Text="US" />
+
+                <Image Grid.Row="3" Grid.Column="0" Source="experience" />
+                <Label Grid.Row="3" Grid.Column="1" Text="Experience" />
+                <Label Grid.Row="3" Grid.Column="2" x:Name="LblExperience" Text="2 Years" />
+
+                <Image Grid.Row="4" Grid.Column="0" Source="specialization" />
+                <Label Grid.Row="4" Grid.Column="1" Text="Specialization" />
+                <Label Grid.Row="4" Grid.Column="2" x:Name="LblSpecialization" Text="Forensic Science" />
+            </Grid>
+            <StackLayout Margin="10" Grid.Row="2">
+                <Label Text="Qualification" TextColor="Orange" Font="Bold,20" />
+                <Label x:Name="LblQualification" Text="Lorem Ipsum is simply dummy text of
+                       the printing and typesetting industry. Lorem
+                       Ipsum has been the industry's standard dummy text
+                       ever since the 1500s, when an unknown printer took
+                       a galley of type and scrambled it" />
+            </StackLayout>
+            <Grid Grid.Row="3" ColumnSpacing="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" BackgroundColor="Purple" TextColor="White"
+                        Font="Bold, 20" Text="Call"/>
+                <Button Grid.Column="1" BackgroundColor="Purple" TextColor="White"
+                        Font="Bold, 20" Text="SMS" />
+                <Button Grid.Column="2" BackgroundColor="Purple" TextColor="White"
+                        Font="Bold,20" Text="SMS" />
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -114,6 +114,26 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\experience.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\experience.imageset\experience.png" />
+    <ImageAsset Include="Assets.xcassets\experience.imageset\experience%402x.png" />
+    <ImageAsset Include="Assets.xcassets\experience.imageset\experience%403x.png" />
+    <ImageAsset Include="Assets.xcassets\language.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\language.imageset\language.png" />
+    <ImageAsset Include="Assets.xcassets\language.imageset\language%402x.png" />
+    <ImageAsset Include="Assets.xcassets\language.imageset\language%403x.png" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location.png" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location%402x.png" />
+    <ImageAsset Include="Assets.xcassets\location.imageset\location%403x.png" />
+    <ImageAsset Include="Assets.xcassets\nationality.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\nationality.imageset\nationality.png" />
+    <ImageAsset Include="Assets.xcassets\nationality.imageset\nationality%402x.png" />
+    <ImageAsset Include="Assets.xcassets\nationality.imageset\nationality%403x.png" />
+    <ImageAsset Include="Assets.xcassets\specialization.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\specialization.imageset\specialization.png" />
+    <ImageAsset Include="Assets.xcassets\specialization.imageset\specialization%402x.png" />
+    <ImageAsset Include="Assets.xcassets\specialization.imageset\specialization%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -160,5 +180,12 @@
     <BundleResource Include="Resources\key.png" />
     <BundleResource Include="Resources\key%402x.png" />
     <BundleResource Include="Resources\key%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\experience.imageset\" />
+    <Folder Include="Assets.xcassets\language.imageset\" />
+    <Folder Include="Assets.xcassets\location.imageset\" />
+    <Folder Include="Assets.xcassets\nationality.imageset\" />
+    <Folder Include="Assets.xcassets\specialization.imageset\" />
   </ItemGroup>
 </Project>

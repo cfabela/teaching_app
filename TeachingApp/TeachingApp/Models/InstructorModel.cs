@@ -3,6 +3,7 @@ namespace TeachingApp.Models
 {
     public class InstructorModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Language { get; set; }
         public string Nationality { get; set; }
@@ -17,5 +18,7 @@ namespace TeachingApp.Models
         public string CourseDomain { get; set; }
         public string City { get; set; }
         public string ImageArray { get; set; }
+
+        public string ImageLogo { get; set; }
     }
 }
