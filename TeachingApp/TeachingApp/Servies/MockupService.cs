@@ -7,6 +7,8 @@ namespace TeachingApp.Servies
 {
     public class MockupService : IAccountServiceInterface
     {
+        private List<InstructorModel> instructors => CreateInstructors();
+
         public Task<bool> BecomeAnInstructor(InstructorModel instructor)
         {
             return Task.FromResult(true);
@@ -29,12 +31,48 @@ namespace TeachingApp.Servies
 
         public Task<InstructorModel> GetInstructor(int id)
         {
-            return new Task<InstructorModel>(() => new InstructorModel());
+            if(id < instructors.Count - 1) return new Task<InstructorModel>(() => instructors[id]);
+            throw new Exception("Not element found!");
         }
 
         public Task<List<InstructorModel>> GetInstructors()
         {
-            var instructors = new List<InstructorModel>();
+            return Task.FromResult(instructors);
+        }
+
+        public Task<TokenResponseModel> GetToken(string email, string password)
+        {
+            var resultToken = new TokenResponseModel
+            {
+                AccessToken = $"special_token{email}_{password}",
+                TokenType = "password",
+                ExpiresIn = 1024,
+                UserName = email,
+                Issued = "true",
+                Expires = "2014 05, 01"
+            };
+
+            return Task.FromResult(resultToken);
+        }
+
+        public Task<bool> PasswordRecovery(string email)
+        {
+            return Task.FromResult(true);
+        }
+
+        public Task<bool> RegisetUser(string email, string password, string confirmPassword)
+        {
+            return Task.FromResult(true);
+        }
+
+        public Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<InstructorModel> CreateInstructors()
+        {
+            var returnList = new List<InstructorModel>();
             instructors.Add(new InstructorModel
             {
                 Id = 1,
@@ -91,37 +129,7 @@ namespace TeachingApp.Servies
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
 
-            return Task.FromResult(instructors);
-        }
-
-        public Task<TokenResponseModel> GetToken(string email, string password)
-        {
-            var resultToken = new TokenResponseModel
-            {
-                AccessToken = $"special_token{email}_{password}",
-                TokenType = "password",
-                ExpiresIn = 1024,
-                UserName = email,
-                Issued = "true",
-                Expires = "2014 05, 01"
-            };
-
-            return Task.FromResult(resultToken);
-        }
-
-        public Task<bool> PasswordRecovery(string email)
-        {
-            return Task.FromResult(true);
-        }
-
-        public Task<bool> RegisetUser(string email, string password, string confirmPassword)
-        {
-            return Task.FromResult(true);
-        }
-
-        public Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city)
-        {
-            throw new NotImplementedException();
+            return returnList;
         }
     }
 }

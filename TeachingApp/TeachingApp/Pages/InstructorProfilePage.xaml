@@ -48,6 +48,7 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
+
                 <Image Grid.Row="0" Grid.Column="0" Source="location" />
                 <Label Grid.Row="0" Grid.Column="1" Text="City" />
                 <Label Grid.Row="0" Grid.Column="2" x:Name="LblCity" Text="Washington" />
@@ -71,7 +72,8 @@
             <StackLayout Margin="10" Grid.Row="2">
                 <Label Text="Qualification" TextColor="Orange" Font="Bold,20" />
                 <ScrollView>
-                    <Label x:Name="LblDescription" Text="Lorem Ipsum is simply dummy text of
+                    <Label x:Name="LblDescription" LineBreakMode="WordWrap"
+                           Text="Lorem Ipsum is simply dummy text of
                        the printing and typesetting industry. Lorem
                        Ipsum has been the industry's standard dummy text
                        ever since the 1500s, when an unknown printer took
@@ -86,12 +88,11 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" x:Name="BtnCall" BackgroundColor="#340E22" TextColor="White"
-                        Font="Bold, 20" Text="Call"/>
+                        Font="Bold, 20" Text="Call" Clicked="BtnCall_OnClicked" />
                 <Button Grid.Column="1" x:Name="BtnSms" BackgroundColor="#340E22" TextColor="White"
-                        Font="Bold, 20" Text="SMS" />
+                        Font="Bold, 20" Text="SMS" Clicked="BtnSms_OnClicked" />
                 <Button Grid.Column="2" x:Name="BtnEmail" BackgroundColor="#340E22" TextColor="White"
-                        Font="Bold,20" Text="Email" />
-
+                        Font="Bold,20" Text="Email" Clicked="BtnEmail_OnClicked" />
             </Grid>
         </Grid>
     </ContentPage.Content>
