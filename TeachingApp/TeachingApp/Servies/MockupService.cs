@@ -7,7 +7,12 @@ namespace TeachingApp.Servies
 {
     public class MockupService : IAccountServiceInterface
     {
-        private List<InstructorModel> instructors => CreateInstructors();
+        private List<InstructorModel> instructors;
+
+        public MockupService()
+        {
+            instructors = CreateInstructors();
+        }
 
         public Task<bool> BecomeAnInstructor(InstructorModel instructor)
         {
@@ -31,7 +36,7 @@ namespace TeachingApp.Servies
 
         public Task<InstructorModel> GetInstructor(int id)
         {
-            if(id < instructors.Count - 1) return new Task<InstructorModel>(() => instructors[id]);
+            if (id < instructors.Count) return Task.FromResult(instructors[id]);
             throw new Exception("Not element found!");
         }
 
@@ -73,10 +78,10 @@ namespace TeachingApp.Servies
         private List<InstructorModel> CreateInstructors()
         {
             var returnList = new List<InstructorModel>();
-            instructors.Add(new InstructorModel
+            returnList.Add(new InstructorModel
             {
-                Id = 1,
-                Name = "Robert",
+                Id = 0,
+                Name = "Robert Webber",
                 Language = "English",
                 City = "Amsterdam",
                 Experience = "2 Yeras",
@@ -84,12 +89,17 @@ namespace TeachingApp.Servies
                 Nationality = "English",
                 Gender = "Male",
                 CourseDomain = "Computer Science",
+                Description = "Lorem Ipsum is simply dummy text of "+
+                       "the printing and typesetting industry.Lorem "+
+                       "Ipsum has been the industry's standard dummy text "+
+                       "ever since the 1500s, when an unknown printer took "+
+                       "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
 
-            instructors.Add(new InstructorModel
+            returnList.Add(new InstructorModel
             {
-                Id = 2,
+                Id = 1,
                 Name = "Denise",
                 Language = "Spanish",
                 City = "Cuban",
@@ -98,12 +108,17 @@ namespace TeachingApp.Servies
                 Nationality = "Cuban",
                 Gender = "Male",
                 CourseDomain = "History",
+                Description = "Lorem Ipsum is simply dummy text of " +
+                       "the printing and typesetting industry.Lorem " +
+                       "Ipsum has been the industry's standard dummy text " +
+                       "ever since the 1500s, when an unknown printer took " +
+                       "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
 
-            instructors.Add(new InstructorModel
+            returnList.Add(new InstructorModel
             {
-                Id = 3,
+                Id = 2,
                 Name = "Ambar",
                 Language = "Spanish",
                 City = "Mexican",
@@ -112,12 +127,17 @@ namespace TeachingApp.Servies
                 Nationality = "Mexican",
                 Gender = "Female",
                 CourseDomain = "Design",
+                Description = "Lorem Ipsum is simply dummy text of " +
+                       "the printing and typesetting industry.Lorem " +
+                       "Ipsum has been the industry's standard dummy text " +
+                       "ever since the 1500s, when an unknown printer took " +
+                       "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
 
-            instructors.Add(new InstructorModel
+            returnList.Add(new InstructorModel
             {
-                Id = 4,
+                Id = 3,
                 Name = "Cindy",
                 Language = "Danish",
                 City = "Japan",
@@ -126,6 +146,11 @@ namespace TeachingApp.Servies
                 Nationality = "Japanese",
                 Gender = "Female",
                 CourseDomain = "Economics",
+                Description = "Lorem Ipsum is simply dummy text of " +
+                       "the printing and typesetting industry.Lorem " +
+                       "Ipsum has been the industry's standard dummy text " +
+                       "ever since the 1500s, when an unknown printer took " +
+                       "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
 
