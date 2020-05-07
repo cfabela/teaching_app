@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="TeachingApp.Pages.HomePage"
+    x:Class="TeachingApp.Pages.SearchInstructorPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            x:Name="TbSearch"
-            Clicked="TbSearch_Clicked"
-            IconImageSource="search.png" />
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView
             x:Name="LvInstructors"

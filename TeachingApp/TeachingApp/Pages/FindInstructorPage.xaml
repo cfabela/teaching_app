@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="TeachingApp.Pages.FindInstructorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Padding="20">
+            <Picker
+                x:Name="PickerCourse"
+                Title="Subject"
+                ItemDisplayBinding="{Binding Name}" />
+            <Picker
+                x:Name="PickerCity"
+                Title="City"
+                ItemDisplayBinding="{Binding Name}" />
+            <Picker x:Name="PickerGender" Title="Gender">
+                <Picker.Items>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                    <x:String>Other</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button
+                x:Name="BtnSearchInstructor"
+                BackgroundColor="#FF9F00"
+                Clicked="BtnSearchInstructor_Clicked"
+                Text="Search"
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

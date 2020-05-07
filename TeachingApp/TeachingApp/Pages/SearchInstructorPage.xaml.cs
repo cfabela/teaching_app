@@ -1,23 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
 using TeachingApp.Models;
 using TeachingApp.Servies;
-
 using Xamarin.Forms;
 
 namespace TeachingApp.Pages
 {
-    public partial class HomePage : ContentPage
+    public partial class SearchInstructorPage : ContentPage
     {
+
         private ObservableCollection<InstructorModel> Instructors;
         private IAccountServiceInterface apiService;
 
+        private string _course;
+        private string _city;
+        private string _gender;
+
         private bool FirstAppearing = true;
-        public HomePage()
+        public SearchInstructorPage(string course, string city, string gender)
         {
             InitializeComponent();
-            Instructors = new ObservableCollection<InstructorModel>();   
+            Instructors = new ObservableCollection<InstructorModel>();
+
+            _course = course;
+            _city = city;
+            _gender = gender;
         }
 
         protected override async void OnAppearing()
@@ -26,7 +34,7 @@ namespace TeachingApp.Pages
             if (FirstAppearing)
             {
                 apiService = apiService ?? new MockupService();
-                var instructors = await apiService.GetInstructors();
+                var instructors = await apiService.SearchInstructors(_course, _city, _gender);
                 foreach (var instructor in instructors)
                 {
                     Instructors.Add(instructor);

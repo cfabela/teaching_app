@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TeachingApp.Models;
 
@@ -31,7 +32,7 @@ namespace TeachingApp.Servies
 
         public Task<List<CourseModel>> GetCourses()
         {
-            return new Task<List<CourseModel>>(() => new List<CourseModel>());
+            return new Task<List<CourseModel>>(() => CreateCourses());
         }
 
         public Task<InstructorModel> GetInstructor(int id)
@@ -72,7 +73,7 @@ namespace TeachingApp.Servies
 
         public Task<List<InstructorModel>> SearchInstructors(string subject, string gender, string city)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(instructors.Take(3).ToList());
         }
 
         private List<InstructorModel> CreateInstructors()
@@ -92,10 +93,10 @@ namespace TeachingApp.Servies
                 OneLineTitle = "asdasdasd323434 asdasd",
                 Gender = "Male",
                 CourseDomain = "Computer Science",
-                Description = "Lorem Ipsum is simply dummy text of "+
-                       "the printing and typesetting industry.Lorem "+
-                       "Ipsum has been the industry's standard dummy text "+
-                       "ever since the 1500s, when an unknown printer took "+
+                Description = "Lorem Ipsum is simply dummy text of " +
+                       "the printing and typesetting industry.Lorem " +
+                       "Ipsum has been the industry's standard dummy text " +
+                       "ever since the 1500s, when an unknown printer took " +
                        "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
             });
@@ -164,6 +165,58 @@ namespace TeachingApp.Servies
                        "ever since the 1500s, when an unknown printer took " +
                        "a galley of type and scrambled it ",
                 ImageLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Csharp_Logo.png/245px-Csharp_Logo.png"
+            });
+
+            return returnList;
+        }
+
+        private List<CourseModel> CreateCourses()
+        {
+            var returnList = new List<CourseModel>();
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Accounting"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Arts"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Biological Science"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Chemestry"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Computer Science"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Dentistry"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Forensic Science"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Medicine"
+            });
+
+            returnList.Add(new CourseModel
+            {
+                Name = "Philosophy"
             });
 
             return returnList;
